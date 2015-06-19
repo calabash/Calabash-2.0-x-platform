@@ -1,7 +1,4 @@
-require 'calabash-cucumber/ibase'
-
-class SitePage < Calabash::IBase
-
+class SitePage < Calabash::IOS::Page
   def trait
     "* marked:'Me'"
   end

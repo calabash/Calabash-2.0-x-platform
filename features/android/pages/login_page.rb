@@ -1,6 +1,4 @@
-require 'calabash-android/abase'
-
-class LoginPage < Calabash::ABase
+class LoginPage < Calabash::Android::Page
 
   def trait
     "android.widget.TextView text:'Sign in'"

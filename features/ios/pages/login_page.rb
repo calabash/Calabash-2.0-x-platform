@@ -1,6 +1,4 @@
-require 'calabash-cucumber/ibase'
-
-class LoginPage < Calabash::IBase
+class LoginPage < Calabash::IOS::Page
   def trait
     "button marked:'Sign In'"
   end

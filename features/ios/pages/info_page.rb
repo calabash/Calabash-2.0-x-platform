@@ -1,7 +1,4 @@
-require 'calabash-cucumber/ibase'
-
-class InfoPage < Calabash::IBase
-
+class InfoPage < Calabash::IOS::Page
   def trait
     "UINavigationBar marked:'Support'"
   end

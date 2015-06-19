@@ -1,8 +1,4 @@
-
-require 'calabash-android/abase'
-
-class InfoPage < Calabash::ABase
-
+class InfoPage < Calabash::Android::Page
   def trait
     "* id:'nux_help_description'"
   end
@@ -13,5 +9,5 @@ class InfoPage < Calabash::ABase
       check_element_exists "* id:'#{txt}'"
     end
   end
-
 end
+
