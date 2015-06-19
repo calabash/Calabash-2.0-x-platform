@@ -4,12 +4,6 @@ class InfoPage < Calabash::IOS::Page
   end
 
   def assert_info_present
-    queries = ['Activity Logs', 'WordPress Help Center']
-    queries.each do |txt|
-      check_element_exists "* marked:'#{txt}'"
-    end
-
-    screenshot_embed
+    expect_views([{marked: 'Activity Logs'}, {marked: 'WordPress Help Center'}])
   end
-
 end

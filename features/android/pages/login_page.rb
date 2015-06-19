@@ -1,35 +1,32 @@
 class LoginPage < Calabash::Android::Page
-
   def trait
     "android.widget.TextView text:'Sign in'"
   end
 
   def self_hosted_site
+    hide_keyboard
 
-    hide_soft_keyboard
-
-    tap_mark(add_self_hosted_site_button)
-
+    tap(marked: add_self_hosted_site_button)
   end
 
   def login(user,pass,site)
-    enter_text(user_field, user)
-    enter_text(pass_field, pass)
-    enter_text(site_field, site)
+    enter_text_in(user_field, user)
+    enter_text_in(pass_field, pass)
+    enter_text_in(site_field, site)
 
-    hide_soft_keyboard
+    hide_keyboard
 
-    touch(sign_in)
+    tap(sign_in)
 
     wait_for_login_done
   end
 
   def assert_can_create_account
-    check_element_exists "* id:'nux_create_account_button'"
+    expect_view("* id:'nux_create_account_button'")
   end
 
   def more_information
-    tap_mark "info_button"
+    tap(marked: 'info_button')
     page(InfoPage).await
   end
 
@@ -57,13 +54,12 @@ class LoginPage < Calabash::Android::Page
     'Add self-hosted site'
   end
 
-
   def wait_for_login_done
     result = nil
     wait_for(timeout: 120) do
-      if element_exists("* {text BEGINSWITH 'The username or'}")
+      if view_exists?("* {text BEGINSWITH 'The username or'}")
         result = :invalid
-      elsif element_exists("* marked:'Posts'")
+      elsif view_exists?("* marked:'Posts'")
         result = :valid
       end
     end
@@ -75,5 +71,4 @@ class LoginPage < Calabash::Android::Page
         page(SitePage)
     end
   end
-
 end

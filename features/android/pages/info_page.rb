@@ -4,10 +4,7 @@ class InfoPage < Calabash::Android::Page
   end
 
   def assert_info_present
-    ids = ['help_button', 'applog_button']
-    ids.each do |txt|
-      check_element_exists "* id:'#{txt}'"
-    end
+    expect_views([{marked: 'help_button'}, {marked: 'applog_button'}])
   end
 end
 

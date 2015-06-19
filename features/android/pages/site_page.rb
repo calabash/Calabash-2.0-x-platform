@@ -4,6 +4,9 @@ class SitePage < Calabash::Android::Page
   end
 
   def to_posts
-    touch(query("* marked:'Posts'").last)
+    # Todo: improve this
+    index = query({marked: 'Posts'}).length - 1
+
+    tap({marked: 'Posts', index: index})
   end
 end

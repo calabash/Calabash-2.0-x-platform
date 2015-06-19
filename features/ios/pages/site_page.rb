@@ -5,13 +5,13 @@ class SitePage < Calabash::IOS::Page
 
   def to_posts
     wait_for_none_animating
-    touch(trait)
+    tap(trait)
     wait_for_none_animating
-    if element_exists("* marked:'Calabash Blog'")
-      touch("* marked:'Calabash Blog'")
+    if view_exists?("* marked:'Calabash Blog'")
+      tap("* marked:'Calabash Blog'")
       wait_for_none_animating
     end
-    touch("* marked:'Posts'")
+    tap("* marked:'Posts'")
     wait_for_none_animating
   end
 end
