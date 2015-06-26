@@ -1,4 +1,25 @@
 test_servers/
-screenshots/
-.idea/
 .irb-history
+
+# rbenv and rvm
+.ruby-version
+.ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# RubyMine
+.idea
+
+# MacOS
+.DS_Store
+__MACOSX
+
+# emacs
+(.*/)?\#[^/]*\#$
+
+# screenshots that might be produced during testing
+*screenshots*
+
+# Bundler
+/.bundle/
