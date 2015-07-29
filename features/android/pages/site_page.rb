@@ -1,4 +1,6 @@
-class SitePage < Calabash::Android::Page
+class Android::SitePage < Calabash::Page
+  include Calabash::Android
+
   def trait
     "* marked:'Posts'"
   end

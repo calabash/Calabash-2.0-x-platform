@@ -1,10 +1,12 @@
-class LoginPage < Calabash::Android::Page
+class Android::LoginPage < Calabash::Page
+  include Calabash::Android
+
   def trait
     "android.widget.TextView text:'Sign in'"
   end
 
   def self_hosted_site
-    hide_keyboard
+    dismiss_keyboard
 
     tap(marked: add_self_hosted_site_button)
   end
@@ -14,7 +16,7 @@ class LoginPage < Calabash::Android::Page
     enter_text_in(pass_field, pass)
     enter_text_in(site_field, site)
 
-    hide_keyboard
+    dismiss_keyboard
 
     tap(sign_in)
 

@@ -1,4 +1,6 @@
-class LoginPage < Calabash::IOS::Page
+class IOS::LoginPage < Calabash::Page
+  include Calabash::IOS
+
   def trait
     "button marked:'Sign In'"
   end

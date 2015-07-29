@@ -1,4 +1,6 @@
-class SitePage < Calabash::IOS::Page
+class IOS::SitePage < Calabash::Page
+  include Calabash::IOS
+
   def trait
     "* marked:'Me'"
   end
